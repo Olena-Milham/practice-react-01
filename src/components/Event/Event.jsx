@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { FaMapMarkerAlt, FaUserAlt, FaCalendarAlt, FaClock } from 'react-icons/fa';
 import css from './Event.module.css'
 export const Event =({name, location, speaker,type, start, end})=>{
     console.log(css)
@@ -7,24 +8,22 @@ export const Event =({name, location, speaker,type, start, end})=>{
         <div className={css.event}>
             <h2 className={css.title}> Name</h2>
             <p className={css.info}>
-                <i className='icon'>
-                    Location
-                </i>
-            </p>
+            <FaMapMarkerAlt className ={css.icon} size={16} />
+                    {location}
+                    </p>
              <p className={css.info}>
-                <i>
-                    Speaker
-                </i>
+             <FaUserAlt className={css.icon} size={16} />
+                    {speaker}    
             </p>
             <p className={css.info}>
-                <i>
-                    Date
-                </i>
+            <FaCalendarAlt className={css.icon} size={16} />
+                    {start}
+                
             </p>
             <p className={css.info}>
-                <i>
+            <FaClock className={css.icon} size={16} />
                     Duration
-                </i>
+                
             </p>
             <span> Event type </span>
         </div>
