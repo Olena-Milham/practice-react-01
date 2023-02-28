@@ -4,6 +4,7 @@ import { formatEventDuration, formatEventStart } from 'utils';
 import css from './Event.module.css'
 export const Event =({name, location, speaker,type, start, end})=>{
     // console.log(css)
+    console.log(css[type]);
     const formatedStart=formatEventStart(start)
     const duration = formatEventDuration(start, end);
     return (
@@ -28,7 +29,7 @@ export const Event =({name, location, speaker,type, start, end})=>{
                     {duration}
                 
             </p>
-            <span> Event type </span>
+            <span className={`${css.chip} ${css[type]}` }> {type} </span>
         </div>
     )
 }
