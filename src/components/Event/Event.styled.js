@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 export const Card=styled.div`
 position: relative;
-    border: 2px dashed black;
+    border: ${proprs => `2px dashed ${proprs.theme.colors.black}`};
     padding: 8px;
     border-radius: 4px;`;
 
@@ -19,7 +19,7 @@ display: flex;
     align-items: center;
     margin-top: 0;
     margin-bottom: 8px;
-    color: var(--color-primary-text);
+    color: ${props=>props.theme.colors.primaryText};
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
@@ -28,23 +28,23 @@ display: flex;
     svg{
     display: block;
     margin-right: 8px;
-    color: var(--color-secondary-text);
+    color: ${props=>props.theme.colors.secondaryText};
     }
     
     `;
 
     // ••••  function option ••••
 
-const setBgColor=props=>{
-    switch (props.eventType){
+const setBgColor=({eventType, theme})=>{
+    switch (eventType){
                 case'free':
-                    return 'var(--color-green)';
+                    return theme.colors.green;
                 case 'paid':
-                    return 'var(--color-blue)';
+                    return theme.colors.blue;
                 case 'vip':
-                    return 'var(--color-red)';
+                    return theme.colors.red;
                 default:
-                    return '#000';
+                    return theme.colors.black;
             }
 
 }
@@ -56,7 +56,7 @@ padding: 4px 8px;
 border-radius: 4px;
 text-transform: uppercase;
 background-color: #000;
-color: #fff;
+color: ${props=>props.theme.colors.white};
 
 background-color: ${setBgColor};
 `;
